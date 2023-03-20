@@ -53,175 +53,208 @@ import PySide2.QtCore
 import PySide2.QtNetwork
 import PySide2.QtWebEngineCore
 
-
 class QWebEngineCookieStore(PySide2.QtCore.QObject):
-
     cookieAdded: PySide2.QtCore.Signal
     cookieRemoved: PySide2.QtCore.Signal
 
     def deleteAllCookies(self) -> None: ...
-    def deleteCookie(self, cookie:PySide2.QtNetwork.QNetworkCookie, origin:PySide2.QtCore.QUrl=...) -> None: ...
+    def deleteCookie(
+        self,
+        cookie: PySide2.QtNetwork.QNetworkCookie,
+        origin: PySide2.QtCore.QUrl = ...,
+    ) -> None: ...
     def deleteSessionCookies(self) -> None: ...
     def loadAllCookies(self) -> None: ...
-    def setCookie(self, cookie:PySide2.QtNetwork.QNetworkCookie, origin:PySide2.QtCore.QUrl=...) -> None: ...
-
+    def setCookie(
+        self,
+        cookie: PySide2.QtNetwork.QNetworkCookie,
+        origin: PySide2.QtCore.QUrl = ...,
+    ) -> None: ...
 
 class QWebEngineHttpRequest(Shiboken.Object):
-    Get                      : QWebEngineHttpRequest.Method = ... # 0x0
-    Post                     : QWebEngineHttpRequest.Method = ... # 0x1
+    Get: QWebEngineHttpRequest.Method = ...  # 0x0
+    Post: QWebEngineHttpRequest.Method = ...  # 0x1
 
     class Method(object):
-        Get                      : QWebEngineHttpRequest.Method = ... # 0x0
-        Post                     : QWebEngineHttpRequest.Method = ... # 0x1
-
+        Get: QWebEngineHttpRequest.Method = ...  # 0x0
+        Post: QWebEngineHttpRequest.Method = ...  # 0x1
     @typing.overload
-    def __init__(self, other:PySide2.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
+    def __init__(
+        self, other: PySide2.QtWebEngineCore.QWebEngineHttpRequest
+    ) -> None: ...
     @typing.overload
-    def __init__(self, url:PySide2.QtCore.QUrl=..., method:PySide2.QtWebEngineCore.QWebEngineHttpRequest.Method=...) -> None: ...
-
-    def hasHeader(self, headerName:PySide2.QtCore.QByteArray) -> bool: ...
-    def header(self, headerName:PySide2.QtCore.QByteArray) -> PySide2.QtCore.QByteArray: ...
+    def __init__(
+        self,
+        url: PySide2.QtCore.QUrl = ...,
+        method: PySide2.QtWebEngineCore.QWebEngineHttpRequest.Method = ...,
+    ) -> None: ...
+    def hasHeader(self, headerName: PySide2.QtCore.QByteArray) -> bool: ...
+    def header(
+        self, headerName: PySide2.QtCore.QByteArray
+    ) -> PySide2.QtCore.QByteArray: ...
     def headers(self) -> typing.List: ...
     def method(self) -> PySide2.QtWebEngineCore.QWebEngineHttpRequest.Method: ...
     def postData(self) -> PySide2.QtCore.QByteArray: ...
     @staticmethod
-    def postRequest(url:PySide2.QtCore.QUrl, postData:typing.Dict) -> PySide2.QtWebEngineCore.QWebEngineHttpRequest: ...
-    def setHeader(self, headerName:PySide2.QtCore.QByteArray, value:PySide2.QtCore.QByteArray) -> None: ...
-    def setMethod(self, method:PySide2.QtWebEngineCore.QWebEngineHttpRequest.Method) -> None: ...
-    def setPostData(self, postData:PySide2.QtCore.QByteArray) -> None: ...
-    def setUrl(self, url:PySide2.QtCore.QUrl) -> None: ...
-    def swap(self, other:PySide2.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
-    def unsetHeader(self, headerName:PySide2.QtCore.QByteArray) -> None: ...
+    def postRequest(
+        url: PySide2.QtCore.QUrl, postData: typing.Dict
+    ) -> PySide2.QtWebEngineCore.QWebEngineHttpRequest: ...
+    def setHeader(
+        self, headerName: PySide2.QtCore.QByteArray, value: PySide2.QtCore.QByteArray
+    ) -> None: ...
+    def setMethod(
+        self, method: PySide2.QtWebEngineCore.QWebEngineHttpRequest.Method
+    ) -> None: ...
+    def setPostData(self, postData: PySide2.QtCore.QByteArray) -> None: ...
+    def setUrl(self, url: PySide2.QtCore.QUrl) -> None: ...
+    def swap(self, other: PySide2.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
+    def unsetHeader(self, headerName: PySide2.QtCore.QByteArray) -> None: ...
     def url(self) -> PySide2.QtCore.QUrl: ...
 
-
 class QWebEngineUrlRequestInfo(Shiboken.Object):
-    NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
-    ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
-    NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
-    ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
-    NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ... # 0x2
-    ResourceTypeStylesheet   : QWebEngineUrlRequestInfo.ResourceType = ... # 0x2
-    NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ... # 0x3
-    ResourceTypeScript       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x3
-    NavigationTypeReload     : QWebEngineUrlRequestInfo.NavigationType = ... # 0x4
-    ResourceTypeImage        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x4
-    NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
-    ResourceTypeFontResource : QWebEngineUrlRequestInfo.ResourceType = ... # 0x5
-    NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
-    ResourceTypeSubResource  : QWebEngineUrlRequestInfo.ResourceType = ... # 0x6
-    ResourceTypeObject       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x7
-    ResourceTypeMedia        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x8
-    ResourceTypeWorker       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x9
-    ResourceTypeSharedWorker : QWebEngineUrlRequestInfo.ResourceType = ... # 0xa
-    ResourceTypePrefetch     : QWebEngineUrlRequestInfo.ResourceType = ... # 0xb
-    ResourceTypeFavicon      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xc
-    ResourceTypeXhr          : QWebEngineUrlRequestInfo.ResourceType = ... # 0xd
-    ResourceTypePing         : QWebEngineUrlRequestInfo.ResourceType = ... # 0xe
-    ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ... # 0xf
-    ResourceTypeCspReport    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x10
-    ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ... # 0x11
-    ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
-    ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-    ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-    ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
+    NavigationTypeLink: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x0
+    ResourceTypeMainFrame: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x0
+    NavigationTypeTyped: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x1
+    ResourceTypeSubFrame: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x1
+    NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x2
+    ResourceTypeStylesheet: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x2
+    NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x3
+    ResourceTypeScript: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x3
+    NavigationTypeReload: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x4
+    ResourceTypeImage: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x4
+    NavigationTypeOther: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x5
+    ResourceTypeFontResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x5
+    NavigationTypeRedirect: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x6
+    ResourceTypeSubResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x6
+    ResourceTypeObject: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x7
+    ResourceTypeMedia: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x8
+    ResourceTypeWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x9
+    ResourceTypeSharedWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xa
+    ResourceTypePrefetch: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xb
+    ResourceTypeFavicon: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xc
+    ResourceTypeXhr: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xd
+    ResourceTypePing: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xe
+    ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xf
+    ResourceTypeCspReport: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x10
+    ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x11
+    ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = (
+        ...
+    )  # 0x13
+    ResourceTypeLast: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x14
+    ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = (
+        ...
+    )  # 0x14
+    ResourceTypeUnknown: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xff
 
     class NavigationType(object):
-        NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
-        NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
-        NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ... # 0x2
-        NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ... # 0x3
-        NavigationTypeReload     : QWebEngineUrlRequestInfo.NavigationType = ... # 0x4
-        NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
-        NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
+        NavigationTypeLink: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x0
+        NavigationTypeTyped: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x1
+        NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = (
+            ...
+        )  # 0x2
+        NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x3
+        NavigationTypeReload: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x4
+        NavigationTypeOther: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x5
+        NavigationTypeRedirect: QWebEngineUrlRequestInfo.NavigationType = ...  # 0x6
 
     class ResourceType(object):
-        ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
-        ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
-        ResourceTypeStylesheet   : QWebEngineUrlRequestInfo.ResourceType = ... # 0x2
-        ResourceTypeScript       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x3
-        ResourceTypeImage        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x4
-        ResourceTypeFontResource : QWebEngineUrlRequestInfo.ResourceType = ... # 0x5
-        ResourceTypeSubResource  : QWebEngineUrlRequestInfo.ResourceType = ... # 0x6
-        ResourceTypeObject       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x7
-        ResourceTypeMedia        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x8
-        ResourceTypeWorker       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x9
-        ResourceTypeSharedWorker : QWebEngineUrlRequestInfo.ResourceType = ... # 0xa
-        ResourceTypePrefetch     : QWebEngineUrlRequestInfo.ResourceType = ... # 0xb
-        ResourceTypeFavicon      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xc
-        ResourceTypeXhr          : QWebEngineUrlRequestInfo.ResourceType = ... # 0xd
-        ResourceTypePing         : QWebEngineUrlRequestInfo.ResourceType = ... # 0xe
-        ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ... # 0xf
-        ResourceTypeCspReport    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x10
-        ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ... # 0x11
-        ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
-        ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-        ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-        ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
-    def block(self, shouldBlock:bool) -> None: ...
+        ResourceTypeMainFrame: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x0
+        ResourceTypeSubFrame: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x1
+        ResourceTypeStylesheet: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x2
+        ResourceTypeScript: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x3
+        ResourceTypeImage: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x4
+        ResourceTypeFontResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x5
+        ResourceTypeSubResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x6
+        ResourceTypeObject: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x7
+        ResourceTypeMedia: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x8
+        ResourceTypeWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x9
+        ResourceTypeSharedWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xa
+        ResourceTypePrefetch: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xb
+        ResourceTypeFavicon: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xc
+        ResourceTypeXhr: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xd
+        ResourceTypePing: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xe
+        ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xf
+        ResourceTypeCspReport: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x10
+        ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x11
+        ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = (
+            ...
+        )  # 0x13
+        ResourceTypeLast: QWebEngineUrlRequestInfo.ResourceType = ...  # 0x14
+        ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = (
+            ...
+        )  # 0x14
+        ResourceTypeUnknown: QWebEngineUrlRequestInfo.ResourceType = ...  # 0xff
+    def block(self, shouldBlock: bool) -> None: ...
     def changed(self) -> bool: ...
     def firstPartyUrl(self) -> PySide2.QtCore.QUrl: ...
     def initiator(self) -> PySide2.QtCore.QUrl: ...
-    def navigationType(self) -> PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo.NavigationType: ...
-    def redirect(self, url:PySide2.QtCore.QUrl) -> None: ...
+    def navigationType(
+        self,
+    ) -> PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo.NavigationType: ...
+    def redirect(self, url: PySide2.QtCore.QUrl) -> None: ...
     def requestMethod(self) -> PySide2.QtCore.QByteArray: ...
     def requestUrl(self) -> PySide2.QtCore.QUrl: ...
-    def resourceType(self) -> PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo.ResourceType: ...
-    def setHttpHeader(self, name:PySide2.QtCore.QByteArray, value:PySide2.QtCore.QByteArray) -> None: ...
-
+    def resourceType(
+        self,
+    ) -> PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo.ResourceType: ...
+    def setHttpHeader(
+        self, name: PySide2.QtCore.QByteArray, value: PySide2.QtCore.QByteArray
+    ) -> None: ...
 
 class QWebEngineUrlRequestInterceptor(PySide2.QtCore.QObject):
-
-    def __init__(self, p:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
-
-    def interceptRequest(self, info:PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo) -> None: ...
-
+    def __init__(self, p: typing.Optional[PySide2.QtCore.QObject] = ...) -> None: ...
+    def interceptRequest(
+        self, info: PySide2.QtWebEngineCore.QWebEngineUrlRequestInfo
+    ) -> None: ...
 
 class QWebEngineUrlRequestJob(PySide2.QtCore.QObject):
-    NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
-    UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
-    UrlInvalid               : QWebEngineUrlRequestJob.Error = ... # 0x2
-    RequestAborted           : QWebEngineUrlRequestJob.Error = ... # 0x3
-    RequestDenied            : QWebEngineUrlRequestJob.Error = ... # 0x4
-    RequestFailed            : QWebEngineUrlRequestJob.Error = ... # 0x5
+    NoError: QWebEngineUrlRequestJob.Error = ...  # 0x0
+    UrlNotFound: QWebEngineUrlRequestJob.Error = ...  # 0x1
+    UrlInvalid: QWebEngineUrlRequestJob.Error = ...  # 0x2
+    RequestAborted: QWebEngineUrlRequestJob.Error = ...  # 0x3
+    RequestDenied: QWebEngineUrlRequestJob.Error = ...  # 0x4
+    RequestFailed: QWebEngineUrlRequestJob.Error = ...  # 0x5
 
     class Error(object):
-        NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
-        UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
-        UrlInvalid               : QWebEngineUrlRequestJob.Error = ... # 0x2
-        RequestAborted           : QWebEngineUrlRequestJob.Error = ... # 0x3
-        RequestDenied            : QWebEngineUrlRequestJob.Error = ... # 0x4
-        RequestFailed            : QWebEngineUrlRequestJob.Error = ... # 0x5
-    def fail(self, error:PySide2.QtWebEngineCore.QWebEngineUrlRequestJob.Error) -> None: ...
+        NoError: QWebEngineUrlRequestJob.Error = ...  # 0x0
+        UrlNotFound: QWebEngineUrlRequestJob.Error = ...  # 0x1
+        UrlInvalid: QWebEngineUrlRequestJob.Error = ...  # 0x2
+        RequestAborted: QWebEngineUrlRequestJob.Error = ...  # 0x3
+        RequestDenied: QWebEngineUrlRequestJob.Error = ...  # 0x4
+        RequestFailed: QWebEngineUrlRequestJob.Error = ...  # 0x5
+    def fail(
+        self, error: PySide2.QtWebEngineCore.QWebEngineUrlRequestJob.Error
+    ) -> None: ...
     def initiator(self) -> PySide2.QtCore.QUrl: ...
-    def redirect(self, url:PySide2.QtCore.QUrl) -> None: ...
-    def reply(self, contentType:PySide2.QtCore.QByteArray, device:PySide2.QtCore.QIODevice) -> None: ...
+    def redirect(self, url: PySide2.QtCore.QUrl) -> None: ...
+    def reply(
+        self, contentType: PySide2.QtCore.QByteArray, device: PySide2.QtCore.QIODevice
+    ) -> None: ...
     def requestHeaders(self) -> typing.Dict: ...
     def requestMethod(self) -> PySide2.QtCore.QByteArray: ...
     def requestUrl(self) -> PySide2.QtCore.QUrl: ...
 
-
 class QWebEngineUrlScheme(Shiboken.Object):
-    PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
-    SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
-    LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
-    LocalAccessAllowed       : QWebEngineUrlScheme.Flag = ... # 0x4
-    NoAccessAllowed          : QWebEngineUrlScheme.Flag = ... # 0x8
-    ServiceWorkersAllowed    : QWebEngineUrlScheme.Flag = ... # 0x10
-    ViewSourceAllowed        : QWebEngineUrlScheme.Flag = ... # 0x20
-    ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
-    CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
+    PortUnspecified: QWebEngineUrlScheme.SpecialPort = ...  # -0x1
+    SecureScheme: QWebEngineUrlScheme.Flag = ...  # 0x1
+    LocalScheme: QWebEngineUrlScheme.Flag = ...  # 0x2
+    LocalAccessAllowed: QWebEngineUrlScheme.Flag = ...  # 0x4
+    NoAccessAllowed: QWebEngineUrlScheme.Flag = ...  # 0x8
+    ServiceWorkersAllowed: QWebEngineUrlScheme.Flag = ...  # 0x10
+    ViewSourceAllowed: QWebEngineUrlScheme.Flag = ...  # 0x20
+    ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ...  # 0x40
+    CorsEnabled: QWebEngineUrlScheme.Flag = ...  # 0x80
 
     class Flag(object):
-        SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
-        LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
-        LocalAccessAllowed       : QWebEngineUrlScheme.Flag = ... # 0x4
-        NoAccessAllowed          : QWebEngineUrlScheme.Flag = ... # 0x8
-        ServiceWorkersAllowed    : QWebEngineUrlScheme.Flag = ... # 0x10
-        ViewSourceAllowed        : QWebEngineUrlScheme.Flag = ... # 0x20
-        ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
-        CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
-        
+        SecureScheme: QWebEngineUrlScheme.Flag = ...  # 0x1
+        LocalScheme: QWebEngineUrlScheme.Flag = ...  # 0x2
+        LocalAccessAllowed: QWebEngineUrlScheme.Flag = ...  # 0x4
+        NoAccessAllowed: QWebEngineUrlScheme.Flag = ...  # 0x8
+        ServiceWorkersAllowed: QWebEngineUrlScheme.Flag = ...  # 0x10
+        ViewSourceAllowed: QWebEngineUrlScheme.Flag = ...  # 0x20
+        ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ...  # 0x40
+        CorsEnabled: QWebEngineUrlScheme.Flag = ...  # 0x80
+
         def __index__(self) -> int: ...
         def __init__(self, value: typing.Union[int, Flag] = ...) -> None: ...
         def __or__(self, other: typing.Union[int, Flag]) -> Flags: ...
@@ -236,7 +269,6 @@ class QWebEngineUrlScheme(Shiboken.Object):
         def __invert__(self) -> Flags: ...
 
     class Flags(object):
-        
         def __index__(self) -> int: ...
         def __init__(self, value: typing.Union[int, Flag, Flags] = ...) -> None: ...
         def __or__(self, other: typing.Union[int, Flag, Flags]) -> Flags: ...
@@ -251,41 +283,46 @@ class QWebEngineUrlScheme(Shiboken.Object):
         def __invert__(self) -> Flags: ...
 
     class SpecialPort(object):
-        PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
+        PortUnspecified: QWebEngineUrlScheme.SpecialPort = ...  # -0x1
 
     class Syntax(object):
-        HostPortAndUserInformation: QWebEngineUrlScheme.Syntax = ... # 0x0
-        HostAndPort              : QWebEngineUrlScheme.Syntax = ... # 0x1
-        Host                     : QWebEngineUrlScheme.Syntax = ... # 0x2
-        Path                     : QWebEngineUrlScheme.Syntax = ... # 0x3
-
+        HostPortAndUserInformation: QWebEngineUrlScheme.Syntax = ...  # 0x0
+        HostAndPort: QWebEngineUrlScheme.Syntax = ...  # 0x1
+        Host: QWebEngineUrlScheme.Syntax = ...  # 0x2
+        Path: QWebEngineUrlScheme.Syntax = ...  # 0x3
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
-    def __init__(self, name:PySide2.QtCore.QByteArray) -> None: ...
+    def __init__(self, name: PySide2.QtCore.QByteArray) -> None: ...
     @typing.overload
-    def __init__(self, that:PySide2.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
-
+    def __init__(self, that: PySide2.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
     @staticmethod
     def __copy__() -> None: ...
     def defaultPort(self) -> int: ...
     def flags(self) -> PySide2.QtWebEngineCore.QWebEngineUrlScheme.Flags: ...
     def name(self) -> PySide2.QtCore.QByteArray: ...
     @staticmethod
-    def registerScheme(scheme:PySide2.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
+    def registerScheme(scheme: PySide2.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
     @staticmethod
-    def schemeByName(name:PySide2.QtCore.QByteArray) -> PySide2.QtWebEngineCore.QWebEngineUrlScheme: ...
-    def setDefaultPort(self, newValue:int) -> None: ...
-    def setFlags(self, newValue:PySide2.QtWebEngineCore.QWebEngineUrlScheme.Flags) -> None: ...
-    def setName(self, newValue:PySide2.QtCore.QByteArray) -> None: ...
-    def setSyntax(self, newValue:PySide2.QtWebEngineCore.QWebEngineUrlScheme.Syntax) -> None: ...
+    def schemeByName(
+        name: PySide2.QtCore.QByteArray,
+    ) -> PySide2.QtWebEngineCore.QWebEngineUrlScheme: ...
+    def setDefaultPort(self, newValue: int) -> None: ...
+    def setFlags(
+        self, newValue: PySide2.QtWebEngineCore.QWebEngineUrlScheme.Flags
+    ) -> None: ...
+    def setName(self, newValue: PySide2.QtCore.QByteArray) -> None: ...
+    def setSyntax(
+        self, newValue: PySide2.QtWebEngineCore.QWebEngineUrlScheme.Syntax
+    ) -> None: ...
     def syntax(self) -> PySide2.QtWebEngineCore.QWebEngineUrlScheme.Syntax: ...
 
-
 class QWebEngineUrlSchemeHandler(PySide2.QtCore.QObject):
-
-    def __init__(self, parent:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
-
-    def requestStarted(self, arg__1:PySide2.QtWebEngineCore.QWebEngineUrlRequestJob) -> None: ...
+    def __init__(
+        self, parent: typing.Optional[PySide2.QtCore.QObject] = ...
+    ) -> None: ...
+    def requestStarted(
+        self, arg__1: PySide2.QtWebEngineCore.QWebEngineUrlRequestJob
+    ) -> None: ...
 
 # eof

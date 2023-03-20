@@ -52,9 +52,7 @@ import shiboken2 as Shiboken
 import PySide2.QtCore
 import PySide2.QtSerialPort
 
-
 class QSerialPort(PySide2.QtCore.QIODevice):
-
     baudRateChanged: PySide2.QtCore.Signal
     breakEnabledChanged: PySide2.QtCore.Signal
     dataBitsChanged: PySide2.QtCore.Signal
@@ -68,98 +66,98 @@ class QSerialPort(PySide2.QtCore.QIODevice):
     settingsRestoredOnCloseChanged: PySide2.QtCore.Signal
     stopBitsChanged: PySide2.QtCore.Signal
 
-    UnknownBaud              : QSerialPort.BaudRate = ... # -0x1
-    UnknownDataBits          : QSerialPort.DataBits = ... # -0x1
-    UnknownFlowControl       : QSerialPort.FlowControl = ... # -0x1
-    UnknownParity            : QSerialPort.Parity = ... # -0x1
-    UnknownPolicy            : QSerialPort.DataErrorPolicy = ... # -0x1
-    UnknownStopBits          : QSerialPort.StopBits = ... # -0x1
-    NoError                  : QSerialPort.SerialPortError = ... # 0x0
-    NoFlowControl            : QSerialPort.FlowControl = ... # 0x0
-    NoParity                 : QSerialPort.Parity = ... # 0x0
-    NoSignal                 : QSerialPort.PinoutSignal = ... # 0x0
-    SkipPolicy               : QSerialPort.DataErrorPolicy = ... # 0x0
-    DeviceNotFoundError      : QSerialPort.SerialPortError = ... # 0x1
-    HardwareControl          : QSerialPort.FlowControl = ... # 0x1
-    Input                    : QSerialPort.Direction = ... # 0x1
-    OneStop                  : QSerialPort.StopBits = ... # 0x1
-    PassZeroPolicy           : QSerialPort.DataErrorPolicy = ... # 0x1
-    TransmittedDataSignal    : QSerialPort.PinoutSignal = ... # 0x1
-    EvenParity               : QSerialPort.Parity = ... # 0x2
-    IgnorePolicy             : QSerialPort.DataErrorPolicy = ... # 0x2
-    Output                   : QSerialPort.Direction = ... # 0x2
-    PermissionError          : QSerialPort.SerialPortError = ... # 0x2
-    ReceivedDataSignal       : QSerialPort.PinoutSignal = ... # 0x2
-    SoftwareControl          : QSerialPort.FlowControl = ... # 0x2
-    TwoStop                  : QSerialPort.StopBits = ... # 0x2
-    AllDirections            : QSerialPort.Direction = ... # 0x3
-    OddParity                : QSerialPort.Parity = ... # 0x3
-    OneAndHalfStop           : QSerialPort.StopBits = ... # 0x3
-    OpenError                : QSerialPort.SerialPortError = ... # 0x3
-    StopReceivingPolicy      : QSerialPort.DataErrorPolicy = ... # 0x3
-    DataTerminalReadySignal  : QSerialPort.PinoutSignal = ... # 0x4
-    ParityError              : QSerialPort.SerialPortError = ... # 0x4
-    SpaceParity              : QSerialPort.Parity = ... # 0x4
-    Data5                    : QSerialPort.DataBits = ... # 0x5
-    FramingError             : QSerialPort.SerialPortError = ... # 0x5
-    MarkParity               : QSerialPort.Parity = ... # 0x5
-    BreakConditionError      : QSerialPort.SerialPortError = ... # 0x6
-    Data6                    : QSerialPort.DataBits = ... # 0x6
-    Data7                    : QSerialPort.DataBits = ... # 0x7
-    WriteError               : QSerialPort.SerialPortError = ... # 0x7
-    Data8                    : QSerialPort.DataBits = ... # 0x8
-    DataCarrierDetectSignal  : QSerialPort.PinoutSignal = ... # 0x8
-    ReadError                : QSerialPort.SerialPortError = ... # 0x8
-    ResourceError            : QSerialPort.SerialPortError = ... # 0x9
-    UnsupportedOperationError: QSerialPort.SerialPortError = ... # 0xa
-    UnknownError             : QSerialPort.SerialPortError = ... # 0xb
-    TimeoutError             : QSerialPort.SerialPortError = ... # 0xc
-    NotOpenError             : QSerialPort.SerialPortError = ... # 0xd
-    DataSetReadySignal       : QSerialPort.PinoutSignal = ... # 0x10
-    RingIndicatorSignal      : QSerialPort.PinoutSignal = ... # 0x20
-    RequestToSendSignal      : QSerialPort.PinoutSignal = ... # 0x40
-    ClearToSendSignal        : QSerialPort.PinoutSignal = ... # 0x80
-    SecondaryTransmittedDataSignal: QSerialPort.PinoutSignal = ... # 0x100
-    SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ... # 0x200
-    Baud1200                 : QSerialPort.BaudRate = ... # 0x4b0
-    Baud2400                 : QSerialPort.BaudRate = ... # 0x960
-    Baud4800                 : QSerialPort.BaudRate = ... # 0x12c0
-    Baud9600                 : QSerialPort.BaudRate = ... # 0x2580
-    Baud19200                : QSerialPort.BaudRate = ... # 0x4b00
-    Baud38400                : QSerialPort.BaudRate = ... # 0x9600
-    Baud57600                : QSerialPort.BaudRate = ... # 0xe100
-    Baud115200               : QSerialPort.BaudRate = ... # 0x1c200
+    UnknownBaud: QSerialPort.BaudRate = ...  # -0x1
+    UnknownDataBits: QSerialPort.DataBits = ...  # -0x1
+    UnknownFlowControl: QSerialPort.FlowControl = ...  # -0x1
+    UnknownParity: QSerialPort.Parity = ...  # -0x1
+    UnknownPolicy: QSerialPort.DataErrorPolicy = ...  # -0x1
+    UnknownStopBits: QSerialPort.StopBits = ...  # -0x1
+    NoError: QSerialPort.SerialPortError = ...  # 0x0
+    NoFlowControl: QSerialPort.FlowControl = ...  # 0x0
+    NoParity: QSerialPort.Parity = ...  # 0x0
+    NoSignal: QSerialPort.PinoutSignal = ...  # 0x0
+    SkipPolicy: QSerialPort.DataErrorPolicy = ...  # 0x0
+    DeviceNotFoundError: QSerialPort.SerialPortError = ...  # 0x1
+    HardwareControl: QSerialPort.FlowControl = ...  # 0x1
+    Input: QSerialPort.Direction = ...  # 0x1
+    OneStop: QSerialPort.StopBits = ...  # 0x1
+    PassZeroPolicy: QSerialPort.DataErrorPolicy = ...  # 0x1
+    TransmittedDataSignal: QSerialPort.PinoutSignal = ...  # 0x1
+    EvenParity: QSerialPort.Parity = ...  # 0x2
+    IgnorePolicy: QSerialPort.DataErrorPolicy = ...  # 0x2
+    Output: QSerialPort.Direction = ...  # 0x2
+    PermissionError: QSerialPort.SerialPortError = ...  # 0x2
+    ReceivedDataSignal: QSerialPort.PinoutSignal = ...  # 0x2
+    SoftwareControl: QSerialPort.FlowControl = ...  # 0x2
+    TwoStop: QSerialPort.StopBits = ...  # 0x2
+    AllDirections: QSerialPort.Direction = ...  # 0x3
+    OddParity: QSerialPort.Parity = ...  # 0x3
+    OneAndHalfStop: QSerialPort.StopBits = ...  # 0x3
+    OpenError: QSerialPort.SerialPortError = ...  # 0x3
+    StopReceivingPolicy: QSerialPort.DataErrorPolicy = ...  # 0x3
+    DataTerminalReadySignal: QSerialPort.PinoutSignal = ...  # 0x4
+    ParityError: QSerialPort.SerialPortError = ...  # 0x4
+    SpaceParity: QSerialPort.Parity = ...  # 0x4
+    Data5: QSerialPort.DataBits = ...  # 0x5
+    FramingError: QSerialPort.SerialPortError = ...  # 0x5
+    MarkParity: QSerialPort.Parity = ...  # 0x5
+    BreakConditionError: QSerialPort.SerialPortError = ...  # 0x6
+    Data6: QSerialPort.DataBits = ...  # 0x6
+    Data7: QSerialPort.DataBits = ...  # 0x7
+    WriteError: QSerialPort.SerialPortError = ...  # 0x7
+    Data8: QSerialPort.DataBits = ...  # 0x8
+    DataCarrierDetectSignal: QSerialPort.PinoutSignal = ...  # 0x8
+    ReadError: QSerialPort.SerialPortError = ...  # 0x8
+    ResourceError: QSerialPort.SerialPortError = ...  # 0x9
+    UnsupportedOperationError: QSerialPort.SerialPortError = ...  # 0xa
+    UnknownError: QSerialPort.SerialPortError = ...  # 0xb
+    TimeoutError: QSerialPort.SerialPortError = ...  # 0xc
+    NotOpenError: QSerialPort.SerialPortError = ...  # 0xd
+    DataSetReadySignal: QSerialPort.PinoutSignal = ...  # 0x10
+    RingIndicatorSignal: QSerialPort.PinoutSignal = ...  # 0x20
+    RequestToSendSignal: QSerialPort.PinoutSignal = ...  # 0x40
+    ClearToSendSignal: QSerialPort.PinoutSignal = ...  # 0x80
+    SecondaryTransmittedDataSignal: QSerialPort.PinoutSignal = ...  # 0x100
+    SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ...  # 0x200
+    Baud1200: QSerialPort.BaudRate = ...  # 0x4b0
+    Baud2400: QSerialPort.BaudRate = ...  # 0x960
+    Baud4800: QSerialPort.BaudRate = ...  # 0x12c0
+    Baud9600: QSerialPort.BaudRate = ...  # 0x2580
+    Baud19200: QSerialPort.BaudRate = ...  # 0x4b00
+    Baud38400: QSerialPort.BaudRate = ...  # 0x9600
+    Baud57600: QSerialPort.BaudRate = ...  # 0xe100
+    Baud115200: QSerialPort.BaudRate = ...  # 0x1c200
 
     class BaudRate(object):
-        UnknownBaud              : QSerialPort.BaudRate = ... # -0x1
-        Baud1200                 : QSerialPort.BaudRate = ... # 0x4b0
-        Baud2400                 : QSerialPort.BaudRate = ... # 0x960
-        Baud4800                 : QSerialPort.BaudRate = ... # 0x12c0
-        Baud9600                 : QSerialPort.BaudRate = ... # 0x2580
-        Baud19200                : QSerialPort.BaudRate = ... # 0x4b00
-        Baud38400                : QSerialPort.BaudRate = ... # 0x9600
-        Baud57600                : QSerialPort.BaudRate = ... # 0xe100
-        Baud115200               : QSerialPort.BaudRate = ... # 0x1c200
+        UnknownBaud: QSerialPort.BaudRate = ...  # -0x1
+        Baud1200: QSerialPort.BaudRate = ...  # 0x4b0
+        Baud2400: QSerialPort.BaudRate = ...  # 0x960
+        Baud4800: QSerialPort.BaudRate = ...  # 0x12c0
+        Baud9600: QSerialPort.BaudRate = ...  # 0x2580
+        Baud19200: QSerialPort.BaudRate = ...  # 0x4b00
+        Baud38400: QSerialPort.BaudRate = ...  # 0x9600
+        Baud57600: QSerialPort.BaudRate = ...  # 0xe100
+        Baud115200: QSerialPort.BaudRate = ...  # 0x1c200
 
     class DataBits(object):
-        UnknownDataBits          : QSerialPort.DataBits = ... # -0x1
-        Data5                    : QSerialPort.DataBits = ... # 0x5
-        Data6                    : QSerialPort.DataBits = ... # 0x6
-        Data7                    : QSerialPort.DataBits = ... # 0x7
-        Data8                    : QSerialPort.DataBits = ... # 0x8
+        UnknownDataBits: QSerialPort.DataBits = ...  # -0x1
+        Data5: QSerialPort.DataBits = ...  # 0x5
+        Data6: QSerialPort.DataBits = ...  # 0x6
+        Data7: QSerialPort.DataBits = ...  # 0x7
+        Data8: QSerialPort.DataBits = ...  # 0x8
 
     class DataErrorPolicy(object):
-        UnknownPolicy            : QSerialPort.DataErrorPolicy = ... # -0x1
-        SkipPolicy               : QSerialPort.DataErrorPolicy = ... # 0x0
-        PassZeroPolicy           : QSerialPort.DataErrorPolicy = ... # 0x1
-        IgnorePolicy             : QSerialPort.DataErrorPolicy = ... # 0x2
-        StopReceivingPolicy      : QSerialPort.DataErrorPolicy = ... # 0x3
+        UnknownPolicy: QSerialPort.DataErrorPolicy = ...  # -0x1
+        SkipPolicy: QSerialPort.DataErrorPolicy = ...  # 0x0
+        PassZeroPolicy: QSerialPort.DataErrorPolicy = ...  # 0x1
+        IgnorePolicy: QSerialPort.DataErrorPolicy = ...  # 0x2
+        StopReceivingPolicy: QSerialPort.DataErrorPolicy = ...  # 0x3
 
     class Direction(object):
-        Input                    : QSerialPort.Direction = ... # 0x1
-        Output                   : QSerialPort.Direction = ... # 0x2
-        AllDirections            : QSerialPort.Direction = ... # 0x3
-        
+        Input: QSerialPort.Direction = ...  # 0x1
+        Output: QSerialPort.Direction = ...  # 0x2
+        AllDirections: QSerialPort.Direction = ...  # 0x3
+
         def __index__(self) -> int: ...
         def __init__(self, value: typing.Union[int, Direction] = ...) -> None: ...
         def __or__(self, other: typing.Union[int, Direction]) -> Directions: ...
@@ -174,47 +172,66 @@ class QSerialPort(PySide2.QtCore.QIODevice):
         def __invert__(self) -> Directions: ...
 
     class Directions(object):
-        
         def __index__(self) -> int: ...
-        def __init__(self, value: typing.Union[int, Direction, Directions] = ...) -> None: ...
-        def __or__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __and__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __xor__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __ror__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __rand__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __rxor__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __ior__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __iand__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
-        def __ixor__(self, other: typing.Union[int, Direction, Directions]) -> Directions: ...
+        def __init__(
+            self, value: typing.Union[int, Direction, Directions] = ...
+        ) -> None: ...
+        def __or__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __and__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __xor__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __ror__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __rand__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __rxor__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __ior__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __iand__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
+        def __ixor__(
+            self, other: typing.Union[int, Direction, Directions]
+        ) -> Directions: ...
         def __invert__(self) -> Directions: ...
 
     class FlowControl(object):
-        UnknownFlowControl       : QSerialPort.FlowControl = ... # -0x1
-        NoFlowControl            : QSerialPort.FlowControl = ... # 0x0
-        HardwareControl          : QSerialPort.FlowControl = ... # 0x1
-        SoftwareControl          : QSerialPort.FlowControl = ... # 0x2
+        UnknownFlowControl: QSerialPort.FlowControl = ...  # -0x1
+        NoFlowControl: QSerialPort.FlowControl = ...  # 0x0
+        HardwareControl: QSerialPort.FlowControl = ...  # 0x1
+        SoftwareControl: QSerialPort.FlowControl = ...  # 0x2
 
     class Parity(object):
-        UnknownParity            : QSerialPort.Parity = ... # -0x1
-        NoParity                 : QSerialPort.Parity = ... # 0x0
-        EvenParity               : QSerialPort.Parity = ... # 0x2
-        OddParity                : QSerialPort.Parity = ... # 0x3
-        SpaceParity              : QSerialPort.Parity = ... # 0x4
-        MarkParity               : QSerialPort.Parity = ... # 0x5
+        UnknownParity: QSerialPort.Parity = ...  # -0x1
+        NoParity: QSerialPort.Parity = ...  # 0x0
+        EvenParity: QSerialPort.Parity = ...  # 0x2
+        OddParity: QSerialPort.Parity = ...  # 0x3
+        SpaceParity: QSerialPort.Parity = ...  # 0x4
+        MarkParity: QSerialPort.Parity = ...  # 0x5
 
     class PinoutSignal(object):
-        NoSignal                 : QSerialPort.PinoutSignal = ... # 0x0
-        TransmittedDataSignal    : QSerialPort.PinoutSignal = ... # 0x1
-        ReceivedDataSignal       : QSerialPort.PinoutSignal = ... # 0x2
-        DataTerminalReadySignal  : QSerialPort.PinoutSignal = ... # 0x4
-        DataCarrierDetectSignal  : QSerialPort.PinoutSignal = ... # 0x8
-        DataSetReadySignal       : QSerialPort.PinoutSignal = ... # 0x10
-        RingIndicatorSignal      : QSerialPort.PinoutSignal = ... # 0x20
-        RequestToSendSignal      : QSerialPort.PinoutSignal = ... # 0x40
-        ClearToSendSignal        : QSerialPort.PinoutSignal = ... # 0x80
-        SecondaryTransmittedDataSignal: QSerialPort.PinoutSignal = ... # 0x100
-        SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ... # 0x200
-        
+        NoSignal: QSerialPort.PinoutSignal = ...  # 0x0
+        TransmittedDataSignal: QSerialPort.PinoutSignal = ...  # 0x1
+        ReceivedDataSignal: QSerialPort.PinoutSignal = ...  # 0x2
+        DataTerminalReadySignal: QSerialPort.PinoutSignal = ...  # 0x4
+        DataCarrierDetectSignal: QSerialPort.PinoutSignal = ...  # 0x8
+        DataSetReadySignal: QSerialPort.PinoutSignal = ...  # 0x10
+        RingIndicatorSignal: QSerialPort.PinoutSignal = ...  # 0x20
+        RequestToSendSignal: QSerialPort.PinoutSignal = ...  # 0x40
+        ClearToSendSignal: QSerialPort.PinoutSignal = ...  # 0x80
+        SecondaryTransmittedDataSignal: QSerialPort.PinoutSignal = ...  # 0x100
+        SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ...  # 0x200
+
         def __index__(self) -> int: ...
         def __init__(self, value: typing.Union[int, PinoutSignal] = ...) -> None: ...
         def __or__(self, other: typing.Union[int, PinoutSignal]) -> PinoutSignals: ...
@@ -229,55 +246,84 @@ class QSerialPort(PySide2.QtCore.QIODevice):
         def __invert__(self) -> PinoutSignals: ...
 
     class PinoutSignals(object):
-        
         def __index__(self) -> int: ...
-        def __init__(self, value: typing.Union[int, PinoutSignal, PinoutSignals] = ...) -> None: ...
-        def __or__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __and__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __xor__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __ror__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __rand__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __rxor__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __ior__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __iand__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
-        def __ixor__(self, other: typing.Union[int, PinoutSignal, PinoutSignals]) -> PinoutSignals: ...
+        def __init__(
+            self, value: typing.Union[int, PinoutSignal, PinoutSignals] = ...
+        ) -> None: ...
+        def __or__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __and__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __xor__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __ror__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __rand__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __rxor__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __ior__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __iand__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
+        def __ixor__(
+            self, other: typing.Union[int, PinoutSignal, PinoutSignals]
+        ) -> PinoutSignals: ...
         def __invert__(self) -> PinoutSignals: ...
 
     class SerialPortError(object):
-        NoError                  : QSerialPort.SerialPortError = ... # 0x0
-        DeviceNotFoundError      : QSerialPort.SerialPortError = ... # 0x1
-        PermissionError          : QSerialPort.SerialPortError = ... # 0x2
-        OpenError                : QSerialPort.SerialPortError = ... # 0x3
-        ParityError              : QSerialPort.SerialPortError = ... # 0x4
-        FramingError             : QSerialPort.SerialPortError = ... # 0x5
-        BreakConditionError      : QSerialPort.SerialPortError = ... # 0x6
-        WriteError               : QSerialPort.SerialPortError = ... # 0x7
-        ReadError                : QSerialPort.SerialPortError = ... # 0x8
-        ResourceError            : QSerialPort.SerialPortError = ... # 0x9
-        UnsupportedOperationError: QSerialPort.SerialPortError = ... # 0xa
-        UnknownError             : QSerialPort.SerialPortError = ... # 0xb
-        TimeoutError             : QSerialPort.SerialPortError = ... # 0xc
-        NotOpenError             : QSerialPort.SerialPortError = ... # 0xd
+        NoError: QSerialPort.SerialPortError = ...  # 0x0
+        DeviceNotFoundError: QSerialPort.SerialPortError = ...  # 0x1
+        PermissionError: QSerialPort.SerialPortError = ...  # 0x2
+        OpenError: QSerialPort.SerialPortError = ...  # 0x3
+        ParityError: QSerialPort.SerialPortError = ...  # 0x4
+        FramingError: QSerialPort.SerialPortError = ...  # 0x5
+        BreakConditionError: QSerialPort.SerialPortError = ...  # 0x6
+        WriteError: QSerialPort.SerialPortError = ...  # 0x7
+        ReadError: QSerialPort.SerialPortError = ...  # 0x8
+        ResourceError: QSerialPort.SerialPortError = ...  # 0x9
+        UnsupportedOperationError: QSerialPort.SerialPortError = ...  # 0xa
+        UnknownError: QSerialPort.SerialPortError = ...  # 0xb
+        TimeoutError: QSerialPort.SerialPortError = ...  # 0xc
+        NotOpenError: QSerialPort.SerialPortError = ...  # 0xd
 
     class StopBits(object):
-        UnknownStopBits          : QSerialPort.StopBits = ... # -0x1
-        OneStop                  : QSerialPort.StopBits = ... # 0x1
-        TwoStop                  : QSerialPort.StopBits = ... # 0x2
-        OneAndHalfStop           : QSerialPort.StopBits = ... # 0x3
-
+        UnknownStopBits: QSerialPort.StopBits = ...  # -0x1
+        OneStop: QSerialPort.StopBits = ...  # 0x1
+        TwoStop: QSerialPort.StopBits = ...  # 0x2
+        OneAndHalfStop: QSerialPort.StopBits = ...  # 0x3
     @typing.overload
-    def __init__(self, info:PySide2.QtSerialPort.QSerialPortInfo, parent:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
+    def __init__(
+        self,
+        info: PySide2.QtSerialPort.QSerialPortInfo,
+        parent: typing.Optional[PySide2.QtCore.QObject] = ...,
+    ) -> None: ...
     @typing.overload
-    def __init__(self, name:str, parent:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
+    def __init__(
+        self, name: str, parent: typing.Optional[PySide2.QtCore.QObject] = ...
+    ) -> None: ...
     @typing.overload
-    def __init__(self, parent:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
-
+    def __init__(
+        self, parent: typing.Optional[PySide2.QtCore.QObject] = ...
+    ) -> None: ...
     def atEnd(self) -> bool: ...
-    def baudRate(self, directions:PySide2.QtSerialPort.QSerialPort.Directions=...) -> int: ...
+    def baudRate(
+        self, directions: PySide2.QtSerialPort.QSerialPort.Directions = ...
+    ) -> int: ...
     def bytesAvailable(self) -> int: ...
     def bytesToWrite(self) -> int: ...
     def canReadLine(self) -> bool: ...
-    def clear(self, directions:PySide2.QtSerialPort.QSerialPort.Directions=...) -> bool: ...
+    def clear(
+        self, directions: PySide2.QtSerialPort.QSerialPort.Directions = ...
+    ) -> bool: ...
     def clearError(self) -> None: ...
     def close(self) -> None: ...
     def dataBits(self) -> PySide2.QtSerialPort.QSerialPort.DataBits: ...
@@ -290,45 +336,54 @@ class QSerialPort(PySide2.QtCore.QIODevice):
     def isDataTerminalReady(self) -> bool: ...
     def isRequestToSend(self) -> bool: ...
     def isSequential(self) -> bool: ...
-    def open(self, mode:PySide2.QtCore.QIODevice.OpenMode) -> bool: ...
+    def open(self, mode: PySide2.QtCore.QIODevice.OpenMode) -> bool: ...
     def parity(self) -> PySide2.QtSerialPort.QSerialPort.Parity: ...
     def pinoutSignals(self) -> PySide2.QtSerialPort.QSerialPort.PinoutSignals: ...
     def portName(self) -> str: ...
     def readBufferSize(self) -> int: ...
-    def readData(self, data:bytes, maxSize:int) -> int: ...
-    def readLineData(self, data:bytes, maxSize:int) -> int: ...
-    def sendBreak(self, duration:int=...) -> bool: ...
-    def setBaudRate(self, baudRate:int, directions:PySide2.QtSerialPort.QSerialPort.Directions=...) -> bool: ...
-    def setBreakEnabled(self, set:bool=...) -> bool: ...
-    def setDataBits(self, dataBits:PySide2.QtSerialPort.QSerialPort.DataBits) -> bool: ...
-    def setDataErrorPolicy(self, policy:PySide2.QtSerialPort.QSerialPort.DataErrorPolicy=...) -> bool: ...
-    def setDataTerminalReady(self, set:bool) -> bool: ...
-    def setFlowControl(self, flowControl:PySide2.QtSerialPort.QSerialPort.FlowControl) -> bool: ...
-    def setParity(self, parity:PySide2.QtSerialPort.QSerialPort.Parity) -> bool: ...
-    def setPort(self, info:PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
-    def setPortName(self, name:str) -> None: ...
-    def setReadBufferSize(self, size:int) -> None: ...
-    def setRequestToSend(self, set:bool) -> bool: ...
-    def setSettingsRestoredOnClose(self, restore:bool) -> None: ...
-    def setStopBits(self, stopBits:PySide2.QtSerialPort.QSerialPort.StopBits) -> bool: ...
+    def readData(self, data: bytes, maxSize: int) -> int: ...
+    def readLineData(self, data: bytes, maxSize: int) -> int: ...
+    def sendBreak(self, duration: int = ...) -> bool: ...
+    def setBaudRate(
+        self,
+        baudRate: int,
+        directions: PySide2.QtSerialPort.QSerialPort.Directions = ...,
+    ) -> bool: ...
+    def setBreakEnabled(self, set: bool = ...) -> bool: ...
+    def setDataBits(
+        self, dataBits: PySide2.QtSerialPort.QSerialPort.DataBits
+    ) -> bool: ...
+    def setDataErrorPolicy(
+        self, policy: PySide2.QtSerialPort.QSerialPort.DataErrorPolicy = ...
+    ) -> bool: ...
+    def setDataTerminalReady(self, set: bool) -> bool: ...
+    def setFlowControl(
+        self, flowControl: PySide2.QtSerialPort.QSerialPort.FlowControl
+    ) -> bool: ...
+    def setParity(self, parity: PySide2.QtSerialPort.QSerialPort.Parity) -> bool: ...
+    def setPort(self, info: PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
+    def setPortName(self, name: str) -> None: ...
+    def setReadBufferSize(self, size: int) -> None: ...
+    def setRequestToSend(self, set: bool) -> bool: ...
+    def setSettingsRestoredOnClose(self, restore: bool) -> None: ...
+    def setStopBits(
+        self, stopBits: PySide2.QtSerialPort.QSerialPort.StopBits
+    ) -> bool: ...
     def settingsRestoredOnClose(self) -> bool: ...
     def stopBits(self) -> PySide2.QtSerialPort.QSerialPort.StopBits: ...
-    def waitForBytesWritten(self, msecs:int=...) -> bool: ...
-    def waitForReadyRead(self, msecs:int=...) -> bool: ...
-    def writeData(self, data:bytes, maxSize:int) -> int: ...
-
+    def waitForBytesWritten(self, msecs: int = ...) -> bool: ...
+    def waitForReadyRead(self, msecs: int = ...) -> bool: ...
+    def writeData(self, data: bytes, maxSize: int) -> int: ...
 
 class QSerialPortInfo(Shiboken.Object):
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
-    def __init__(self, name:str) -> None: ...
+    def __init__(self, name: str) -> None: ...
     @typing.overload
-    def __init__(self, other:PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
+    def __init__(self, other: PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
     @typing.overload
-    def __init__(self, port:PySide2.QtSerialPort.QSerialPort) -> None: ...
-
+    def __init__(self, port: PySide2.QtSerialPort.QSerialPort) -> None: ...
     @staticmethod
     def __copy__() -> None: ...
     @staticmethod
@@ -345,7 +400,7 @@ class QSerialPortInfo(Shiboken.Object):
     def serialNumber(self) -> str: ...
     @staticmethod
     def standardBaudRates() -> typing.List: ...
-    def swap(self, other:PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
+    def swap(self, other: PySide2.QtSerialPort.QSerialPortInfo) -> None: ...
     def systemLocation(self) -> str: ...
     def vendorIdentifier(self) -> int: ...
 

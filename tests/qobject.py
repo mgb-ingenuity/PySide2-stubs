@@ -3,7 +3,7 @@ from typing import List, Iterable
 from PySide2.QtCore import QObject
 from PySide2.QtWidgets import QWidget, QApplication
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication([])
 
 o1 = QWidget()
@@ -22,9 +22,8 @@ assert isinstance(b[0], QWidget)
 
 # incorrect here, correctly detected by mypy
 c: List[QWidget]
-c = o1.findChildren(QObject, '')        # type: ignore[arg-type]
+c = o1.findChildren(QObject, "")  # type: ignore[arg-type]
 
 # cast works, List[QWidget] is a List[QObject]
 d: List[QObject]
-d = o1.findChildren(QWidget, '')
-
+d = o1.findChildren(QWidget, "")

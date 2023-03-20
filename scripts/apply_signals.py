@@ -6,7 +6,8 @@ import libcst
 import libcst as cst
 import libcst.matchers as matchers
 
-JSON_INPUT_FNAME = pathlib.Path(__file__).parent / 'class-signals.json'
+JSON_INPUT_FNAME = pathlib.Path(__file__).parent / "class-signals.json"
+
 
 class TypingTransformer(cst.CSTTransformer):
     """TypingTransformer that visits classes and methods."""
@@ -18,16 +19,19 @@ class TypingTransformer(cst.CSTTransformer):
         self.fqn_class_signals = d
         self.annotation = []
 
-
     def visit_ClassDef(self, node: cst.ClassDef) -> Optional[bool]:
         """Put a class on top of the stack when visiting."""
-        self.full_name_stack.append( node.name.value )
+        self.full_name_stack.append(node.name.value)
         return True
 
-
-    def leave_ClassDef(self, original_node: cst.ClassDef, updated_node: cst.ClassDef) \
-            -> Union[cst.BaseStatement, cst.FlattenSentinel[cst.BaseStatement], cst.RemovalSentinel, ]:
-        fqn_class = '.'.join(self.full_name_stack)
+    def leave_ClassDef(
+        self, original_node: cst.ClassDef, updated_node: cst.ClassDef
+    ) -> Union[
+        cst.BaseStatement,
+        cst.FlattenSentinel[cst.BaseStatement],
+        cst.RemovalSentinel,
+    ]:
+        fqn_class = ".".join(self.full_name_stack)
         self.full_name_stack.pop()
 
         # no signals to adjust
@@ -40,13 +44,21 @@ class TypingTransformer(cst.CSTTransformer):
         annotatedAttributes = set()
 
         for class_content in updated_node.body.body:
-            if matchers.matches(class_content, matchers.SimpleStatementLine(body=[matchers.Assign()])):
-                nonAnnotatedAttributes.add(class_content.body[0].targets[0].target.value)
+            if matchers.matches(
+                class_content, matchers.SimpleStatementLine(body=[matchers.Assign()])
+            ):
+                nonAnnotatedAttributes.add(
+                    class_content.body[0].targets[0].target.value
+                )
 
-            if matchers.matches(class_content, matchers.SimpleStatementLine(body=[matchers.AnnAssign()])):
+            if matchers.matches(
+                class_content, matchers.SimpleStatementLine(body=[matchers.AnnAssign()])
+            ):
                 annotatedAttributes.add(class_content.body[0].target.value)
 
-        missingSignals = sorted(collected_signals - nonAnnotatedAttributes - annotatedAttributes)
+        missingSignals = sorted(
+            collected_signals - nonAnnotatedAttributes - annotatedAttributes
+        )
 
         if not missingSignals:
             # all signals are already there
@@ -54,11 +66,10 @@ class TypingTransformer(cst.CSTTransformer):
 
         pre_body = []
         for signal in missingSignals:
-            print(f'Class {fqn_class}: adding signal {signal}')
-            pre_body.append(libcst.parse_statement(f'{signal}: PySide2.QtCore.Signal'))
+            print(f"Class {fqn_class}: adding signal {signal}")
+            pre_body.append(libcst.parse_statement(f"{signal}: PySide2.QtCore.Signal"))
         pre_body.insert(0, libcst.EmptyLine(indent=False, newline=libcst.Newline()))
         pre_body.append(libcst.EmptyLine(indent=False, newline=libcst.Newline()))
-
 
         return updated_node.with_changes(
             body=updated_node.body.with_changes(
@@ -68,12 +79,12 @@ class TypingTransformer(cst.CSTTransformer):
 
 
 def apply_signals_for_module(module_path: str, d: Dict[str, str]) -> None:
-    if module_path.name.startswith('_'):
+    if module_path.name.startswith("_"):
         return
 
     module_name = module_path.stem
 
-    print('Fixing ', module_name)
+    print("Fixing ", module_name)
     with open(module_path, "r", encoding="utf-8") as fhandle:
         stub_tree = cst.parse_module(fhandle.read())
 
@@ -85,14 +96,13 @@ def apply_signals_for_module(module_path: str, d: Dict[str, str]) -> None:
 
 
 def main():
-    with open(JSON_INPUT_FNAME, 'r') as f:
+    with open(JSON_INPUT_FNAME, "r") as f:
         d = json.load(f)
 
-    for fpath in (pathlib.Path(__file__).parent.parent / 'PySide2-stubs').glob('*.pyi'):
+    for fpath in (pathlib.Path(__file__).parent.parent / "PySide2-stubs").glob("*.pyi"):
         apply_signals_for_module(fpath, d)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     # auto_test()
     main()

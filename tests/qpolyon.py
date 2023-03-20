@@ -11,7 +11,7 @@ point_list: List[QPoint]
 point = QPoint()
 point_list = [point]
 
-polygon = QPolygon()    # type: QPolygon
+polygon = QPolygon()  # type: QPolygon
 polygon << point
 polygon << point << point
 polygon << [point, point]
@@ -31,4 +31,3 @@ point_list = polygon + [point]
 
 polygon += point
 assert type(polygon) == QPolygon
-

@@ -51,7 +51,6 @@ import shiboken2 as Shiboken
 
 import PySide2.QtWebEngine
 
-
 class QtWebEngine(Shiboken.Object):
     @staticmethod
     def initialize() -> None: ...

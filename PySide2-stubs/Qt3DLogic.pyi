@@ -53,20 +53,17 @@ import PySide2.QtCore
 import PySide2.Qt3DCore
 import PySide2.Qt3DLogic
 
-
 class Qt3DLogic(Shiboken.Object):
-
     class QFrameAction(PySide2.Qt3DCore.QComponent):
-
         triggered: PySide2.QtCore.Signal
 
-
-        def __init__(self, parent:typing.Optional[PySide2.Qt3DCore.Qt3DCore.QNode]=...) -> None: ...
-
+        def __init__(
+            self, parent: typing.Optional[PySide2.Qt3DCore.Qt3DCore.QNode] = ...
+        ) -> None: ...
 
     class QLogicAspect(PySide2.Qt3DCore.QAbstractAspect):
-
-        def __init__(self, parent:typing.Optional[PySide2.QtCore.QObject]=...) -> None: ...
-
+        def __init__(
+            self, parent: typing.Optional[PySide2.QtCore.QObject] = ...
+        ) -> None: ...
 
 # eof

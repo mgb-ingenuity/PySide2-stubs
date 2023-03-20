@@ -2,3 +2,8 @@
 /dist/
 /PySide2_stubs.egg-info
 .mypy_cache
+venv
+__pycache__
+__pytest_cache__
+.pytest_cache
+.idea

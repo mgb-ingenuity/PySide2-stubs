@@ -38,10 +38,10 @@ def download_stubs(download_folder: Path, file_filter: List[str]) -> None:
             f"pyside2=={'.'.join((str(nbr) for nbr in PYSIDE2_VERSION))}",
         ],
         env={
-            'http_proxy' : 'http://165.225.205.119:80/',
-            'https_proxy': 'http://165.225.205.119:80/',
-            **os.environ
-        }
+            "http_proxy": "http://165.225.205.119:80/",
+            "https_proxy": "http://165.225.205.119:80/",
+            **os.environ,
+        },
     )
 
     # Extract the upstream pyi files
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     # Update pip just in case
     # subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
 
-    incoming = Path('incoming')
+    incoming = Path("incoming")
     incoming.mkdir(exist_ok=True)
 
     # Download required packages

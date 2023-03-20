@@ -13,18 +13,18 @@ TESTS_DIR = Path(__file__).parent
 def gen_file_list() -> Iterator[Path]:
     """List of all files included in the directory tests for typing checking them"""
     for path in TESTS_DIR.glob("*.py"):
-        if not path.name.startswith("test_") and not path.name.startswith('X'):
+        if not path.name.startswith("test_") and not path.name.startswith("X"):
             yield path
-
 
 
 @pytest.fixture(name="qapplication", scope="session")
 def qapplication_fixture() -> QApplication:
     application = QApplication.instance()
     if application is None:
-        application = QApplication(['-platform', 'minimal'])
+        application = QApplication(["-platform", "minimal"])
 
     return application
+
 
 @pytest.mark.parametrize(
     "filepath",
@@ -33,7 +33,7 @@ def qapplication_fixture() -> QApplication:
 )
 def test_examples_with_mypy(filepath: Path) -> None:
     """Run mypy over example files."""
-    stdout, stderr, exitcode = api.run([os.fspath(filepath)] + ['--show-error-codes'])
+    stdout, stderr, exitcode = api.run([os.fspath(filepath)] + ["--show-error-codes"])
     if stdout:
         print(stdout)
     if stderr:
