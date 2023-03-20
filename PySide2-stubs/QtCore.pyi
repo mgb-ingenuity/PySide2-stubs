@@ -16552,10 +16552,8 @@ class Signal(object):
     # https://youtrack.jetbrains.com/issue/PY-22908/PyQt-PySide-unresolved-reference-for-new-style-Signals-and-Signal-type#focus=Comments-27-6311214.0-0
     @staticmethod
     def connect(slot: object, type: typing.Optional[type] = ...) -> bool: ...
-
     @staticmethod
     def disconnect(slot: object = ...) -> None: ...
-
     @staticmethod
     def emit(*args: typing.Any) -> None: ...
 
